@@ -1,8 +1,8 @@
 baseURL = "https://example.com"
 languageCode = "en-us"
-title = "Vanilla"
-theme = "vanilla-bootstrap-hugo-theme"
-googleAnalytics = "UA-123456789-1"
+title = "PRU Data Portal"
+theme = "pru-theme"
+googleAnalytics = ""
 
 # Uncomment below to enable syntax highlighting
 # pygmentsCodefences = true
@@ -14,7 +14,7 @@ googleAnalytics = "UA-123456789-1"
   tag = "tags"
 
 [permalinks]
-  post = "/:filename/"
+    post = "/:year/:month/:day/:slug/"
 
 # See https://feathericons.com/
 # The value of pre is the icon name
@@ -50,6 +50,6 @@ googleAnalytics = "UA-123456789-1"
   showActiveNav = true
   containerMaxWidth = "700px"
   dateFormat = "Jan 2, 2006"
-  homeText = "Welcome to the Vanilla theme demo. Have a look around. Maybe even eat some ice cream."
-  footerText = "Made with [Hugo](https://gohugo.io/) & [Vanilla](https://github.com/zwbetz-gh/vanilla-bootstrap-hugo-theme)"
+  homeText = "Welcome to the PRU theme demo."
+  footerText = "Made with [Hugo](https://gohugo.io/)."
   hideFooter = false
