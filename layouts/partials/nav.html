@@ -1,5 +1,14 @@
 <div id="nav-border" class="container">
   <nav id="nav" class="nav justify-content-center">
+    {{ if .Site.Params.logo }}
+    <a class="navbar-brand" href="/#">
+      <img src="{{ .Site.Params.logo.url | relURL }}"
+           width="{{ .Site.Params.logo.width }}"
+           height="{{ .Site.Params.logo.height }}"
+           alt="{{ .Site.Params.logo.alt }}">
+    </a>
+    {{ end }}
+
   {{ $showActiveNav := .Site.Params.showActiveNav }}
   {{ $currentPage := . }}
   {{ range .Site.Menus.nav }}
@@ -13,7 +22,7 @@
         {{ $active = "nav-link-active" }}
       {{ end }}  
     {{ end }}  
-    {{ $icon := printf "<i data-feather=\"%s\"></i>" .Pre }}
+    {{ $icon := .Pre }}
     {{ $text := print $icon " " .Name | safeHTML }}
     <a class="nav-link {{ $active }}" href="{{ .URL }}">{{ $text }}</a>
   {{ end }}
