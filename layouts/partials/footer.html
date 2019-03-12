@@ -6,12 +6,12 @@
       </li>
       <li>Subscribe via
         <!-- text encoded (in _subscriber-href-encoded.txt) to avoid spammer robots via http://clickable-email.ezkode.com/ -->
-        <span><a href="{{ readFile "/layouts/subscribe-href.txt" }}">email <i data-feather='mail'></i></a>
+        <span><a href="{{ readFile "/layouts/subscribe-href.txt" }}">email <i class="fas fa-envelope"></i></a>
         or
-        <a href="{{ .Site.RSSLink | relURL }}" type="application/rss+xml" target="_blank">RSS <i data-feather='rss'></i></a></span>
+        <a href="{{ .Site.RSSLink | relURL }}" type="application/rss+xml" target="_blank">RSS <i class="fas fa-rss"></i></a></span>
       </li>
-      <li><a href="/about/help/"><i data-feather='help-circle'></i></a></li>
-      <li><a href="/about/howbuilt/"><i data-feather='settings'></i></a>
+      <li><a href="/about/help/"><i class="fas fa-question-circle"></i></a></li>
+      <li><a href="/about/howbuilt/"><i class="fas fa-cogs"></i></a>
       </li>
     </ul>
 </footer>
