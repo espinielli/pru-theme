@@ -38,18 +38,17 @@
             </a>{{.Post}}
             <div class="dropdown-menu" aria-labelledby="{{ .Identifier }}">
             {{ range .Children }}
-              {{ printf "<!-- name: '%s' -->" .Name | safeHTML }}
               {{ if ( hasPrefix .Name "divider" ) }}
               <div class='dropdown-divider'></div>
               {{ else }}
-              <a class="dropdown-item" href="{{ .URL }}">{{ .Pre }}<span>{{safeHTML .Name}}</span></a>{{.Post}}
+              <a class="dropdown-item" href="{{ .URL }}">{{ .Pre }}<span>{{safeHTML .Name}}</span>{{.Post}}</a>
               {{ end }}
             {{ end }}
             </div>
           </li>
         {{ else }}
           <li class="nav-item">
-            <a class="nav-link {{ $active }}" href="{{ .URL }}">{{ .Pre }}<span>{{safeHTML .Name}}</span></a>{{.Post}}
+            <a class="nav-link {{ $active }}" href="{{ .URL }}">{{ .Pre }}<span>{{safeHTML .Name}}</span>{{.Post}}</a>
           </li>
         {{ end }}
       {{ end }}
