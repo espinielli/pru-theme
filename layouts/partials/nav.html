@@ -15,21 +15,41 @@
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav mr-auto">
 
+      {{ $showActiveNav := .Site.Params.showActiveNav }}
+      {{ $currentPage := . }}
+
       {{ range .Site.Menus.main }}
+      
+        {{ $active := "" }}
+        {{ if eq $showActiveNav true }}
+          {{ $isMenu := or ($currentPage.IsMenuCurrent "main" .) ($currentPage.HasMenuCurrent "main" .) }}
+          {{ $isMenu = or $isMenu (eq $currentPage.Title .Name) }}
+          {{ $isMenu = or $isMenu (and (eq .Name "Blog") (eq $currentPage.Section "post")) }}
+          {{ $isMenu = or $isMenu (and (eq .Name "Tags") (eq $currentPage.Section "tags")) }}
+          {{ if $isMenu }} 
+            {{ $active = "active" }}
+          {{ end }}  
+        {{ end }}  
+
         {{ if .HasChildren }}
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="{{ .URL }}" id="{{ .Identifier }}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a class="nav-link dropdown-toggle {{ $active }}" href="{{ .URL }}" id="{{ .Identifier }}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             {{ .Pre }}<span>{{ .Name }}</span>
-            </a>
+            </a>{{.Post}}
             <div class="dropdown-menu" aria-labelledby="{{ .Identifier }}">
             {{ range .Children }}
-              <a class="dropdown-item" href="{{ .URL }}">{{ .Pre }}<span>{{ .Name }}</span></a>
+              {{ printf "<!-- name: '%s' -->" .Name | safeHTML }}
+              {{ if ( hasPrefix .Name "divider" ) }}
+              <div class='dropdown-divider'></div>
+              {{ else }}
+              <a class="dropdown-item" href="{{ .URL }}">{{ .Pre }}<span>{{safeHTML .Name}}</span></a>{{.Post}}
+              {{ end }}
             {{ end }}
             </div>
           </li>
         {{ else }}
           <li class="nav-item">
-            <a class="nav-link" href="{{ .URL }}">{{ .Pre }}<span>{{ .Name }}</span></a>
+            <a class="nav-link {{ $active }}" href="{{ .URL }}">{{ .Pre }}<span>{{safeHTML .Name}}</span></a>{{.Post}}
           </li>
         {{ end }}
       {{ end }}
