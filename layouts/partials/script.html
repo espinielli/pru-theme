@@ -6,3 +6,13 @@
 {{ if eq (getenv "HUGO_ENV") "production" | or (eq .Site.Params.env "production")  }}
   {{ template "_internal/google_analytics_async.html" . }}
 {{ end }}
+
+{{- range .Params.extrajs }}
+<script src="{{ . }}" type="text/javascript"></script>
+{{- end }}
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.2.0/anchor.min.js" type="text/javascript" charset="utf-8"></script>
+<!-- Add anchors before the closing body tag. -->
+<script>
+  anchors.add();
+</script>
