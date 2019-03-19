@@ -273,3 +273,49 @@ caption /* This is for a table caption tag, not the p.caption Pandoc uses in a d
   margin: 0.5em;
   padding: 0.5em;
 }
+
+
+
+/* sidenav */
+.sidenav {
+  padding: 1em;
+}
+.sidenav-links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  color: #aaa;
+}
+
+.sidenav-links li {
+  margin: 0;
+  padding: 0;
+  display: inline-block;
+}
+
+.sidenav-links a {
+  color: #aaa;
+  text-decoration: underline;
+  transition: color 150ms ease;
+  margin: 0 15px;
+}
+
+.sidenav-links a:hover,
+.sidenav-links a:focus {
+  color: #222;
+}
+
+.sidenav-links a > .fa {
+  text-decoration: underline;
+}
+
+
+.sidenav-links li::before {
+  content: '|';
+  position: relative;
+  left: -2px;
+}
+
+.sidenav-links li:first-child::before {
+  display: none;
+}
