@@ -2,12 +2,12 @@
 
 <h1>{{ .Title }}</h1>
 
-{{ range .Pages.ByPublishDate.Reverse }}
-<p>
-  <a class="font-125" href="{{ .Permalink }}">{{ .Title }}</a>
-  <br>
-  {{ partial "date-and-tags.html" . }}
-</p>
-{{ end }}
-
+  {{ range (where .Data.Pages "Section" "!=" "").GroupByDate "2006" }}
+  <h2 class="archive-title">{{ .Key }}</h2>
+    {{ range .Pages }}
+    <article class="archive-item">
+      <span class="archive-item-date">{{ .Date.Format "Jan 02" }}</span> &mdash; <a class="font-125" href="{{ .Permalink }}">{{ .Title }}</a>
+    </article>
+    {{ end }}
+  {{ end }}
 {{ end }}
