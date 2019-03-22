@@ -293,7 +293,6 @@ caption /* This is for a table caption tag, not the p.caption Pandoc uses in a d
 }
 
 .sidenav-links a {
-  color: #aaa;
   text-decoration: underline;
   transition: color 150ms ease;
   margin: 0 15px;
