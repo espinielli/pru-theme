@@ -85,7 +85,6 @@ audio {
 }
 
 .footer-links a {
-  color: #aaa;
   text-decoration: underline;
   transition: color 150ms ease;
   margin: 0 15px;
