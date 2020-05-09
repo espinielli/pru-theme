@@ -1,7 +1,7 @@
 <div id="nav-border" class="container">
   <nav id="nav" class="navbar justify-content-center navbar-expand-lg navbar-light bg-light">
     {{ if .Site.Params.logo }}
-    <a class="navbar-brand" href="/#">
+    <a class="navbar-brand" href="{{ .Site.Params.logo.target }}">
       <img src="{{ .Site.Params.logo.url | relURL }}"
            width="{{ .Site.Params.logo.width }}"
            height="{{ .Site.Params.logo.height }}"
