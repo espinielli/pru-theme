@@ -9,7 +9,7 @@
     {{ $title = .Site.Title }}
   {{ end }}
   <title>{{ $title }}</title>
-  <link rel="stylesheet" href='{{ "css/pru.css" | relURL }}' media="all">
+  {{ partial "style.html" . }}
   {{ range .Site.Params.customCSS }}
   <link rel="stylesheet" href="{{ . | relURL }}">
   {{ end }}
