@@ -4,6 +4,9 @@
       <li>&copy; {{ now.Format "2006"}}&nbsp;{{ .Site.Params.owner.shortname }} &nbsp; &mdash; &nbsp;
       <a href="/about/disclaimer/">Disclaimer</a>
       </li>
+          <li>
+            <a href="{{ .Site.Params.PrivacyURL }}" target="_blank">Privacy statement</a>
+          </li>
       <li>Subscribe via
         <!-- text encoded (in _subscriber-href-encoded.txt) to avoid spammer robots via http://clickable-email.ezkode.com/ -->
         <span><a href="{{ readFile "/layouts/subscribe-href.txt" }}">email <i class="fas fa-envelope"></i></a>
